@@ -15,11 +15,33 @@ import {
   subWeeks,
   addWeeks,
   subDays,
-  addDays,
+  addDays
 } from "date-fns";
 import { chunk } from "lodash";
 import CalendarControls from "./CalendarControls";
 
+// Function to generate months of a given date.
+const generateMonth = (selectedDate) => {
+  // Get the number of days in a month of the given date.
+  const daysInMonth = getDaysInMonth(selectedDate);
+  // startOfMonth returns the start of a month for the given date
+  const startWeekday = getDay(startOfMonth(selectedDate));
+  const endWeekday = getDay(endOfMonth(selectedDate));
+  const gridDays = chunk(
+    [
+      ...Array.from({ length: startWeekday }).fill(null),
+      ...Array.from({ length: daysInMonth }, (_, i) =>
+        setDate(selectedDate, i + 1)
+      ),
+      ...Array.from({ length: 6 - endWeekday }).fill(null)
+    ],
+    7
+  );
+  console.log(gridDays);
+  return gridDays;
+};
+
+// Calendar component
 const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   /* State for the selected date */
   const [selectedDate, setSelectedDate] = useState(new Date(date));
@@ -152,26 +174,6 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
     }
   };
 
-  const generateMonth = () => {
-    // Get the number of days in a month of the given date.
-    const daysInMonth = getDaysInMonth(selectedDate);
-    // startOfMonth returns the start of a month for the given date
-    const startWeekday = getDay(startOfMonth(selectedDate));
-    const endWeekday = getDay(endOfMonth(selectedDate));
-    const gridDays = chunk(
-      [
-        ...Array.from({ length: startWeekday }).fill(null),
-        ...Array.from({ length: daysInMonth }, (_, i) =>
-          setDate(selectedDate, i + 1)
-        ),
-        ...Array.from({ length: 6 - endWeekday }).fill(null),
-      ],
-      7
-    );
-    console.log(gridDays);
-    return gridDays;
-  };
-
   return (
     <div className="flex flex-col border-black border-solid border p-0.5 w-72">
       <CalendarControls
@@ -219,7 +221,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
           </tr>
         </thead>
         <tbody>
-          {generateMonth().map((week, i) => (
+          {generateMonth(selectedDate).map((week, i) => (
             <tr key={`week-${i}`} role="row">
               {week.map((day, i) =>
                 day ? (
