@@ -41,6 +41,20 @@ const generateMonth = (selectedDate) => {
   return gridDays;
 };
 
+// WeekDay Component
+const WeekDay = ({ day, date, onClick }) => {
+  return (
+    <td
+      className={`cell${isEqual(date, day) ? " active" : ""}`}
+      onClick={onClick}
+      role="gridcell"
+      aria-selected={isEqual(date, day)}
+    >
+      {getDate(day)}
+    </td>
+  );
+};
+
 // Calendar component
 const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   /* State for the selected date */
@@ -225,21 +239,16 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
             <tr key={`week-${i}`} role="row">
               {week.map((day, i) =>
                 day ? (
-                  <td
-                    className={`cell${
-                      isEqual(selectedDate, day) ? " active" : ""
-                    }`}
-                    key={`day-cell-${i}`}
+                  <WeekDay
+                    day={day}
                     onClick={() => handleDateSelection(day)}
-                    role="gridcell"
-                    aria-selected={isEqual(selectedDate, day)}
-                  >
-                    {getDate(day)}
-                  </td>
+                    date={selectedDate}
+                    key={`day-cell-${i}`}
+                  />
                 ) : (
-                  <td className="empty" key={`day-cell-${i}`}>
+                  <WeekDay className="empty" key={`day-cell-${i}`}>
                     &nbsp;
-                  </td>
+                  </WeekDay>
                 )
               )}
             </tr>
