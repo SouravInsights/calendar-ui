@@ -20,41 +20,6 @@ import {
 import { chunk } from "lodash";
 import CalendarControls from "./CalendarControls";
 
-// Function to generate months of a given date.
-const generateMonth = (selectedDate) => {
-  // Get the number of days in a month of the given date.
-  const daysInMonth = getDaysInMonth(selectedDate);
-  // startOfMonth returns the start of a month for the given date
-  const startWeekday = getDay(startOfMonth(selectedDate));
-  const endWeekday = getDay(endOfMonth(selectedDate));
-  const gridDays = chunk(
-    [
-      ...Array.from({ length: startWeekday }).fill(null),
-      ...Array.from({ length: daysInMonth }, (_, i) =>
-        setDate(selectedDate, i + 1)
-      ),
-      ...Array.from({ length: 6 - endWeekday }).fill(null)
-    ],
-    7
-  );
-  console.log(gridDays);
-  return gridDays;
-};
-
-// WeekDay Component
-const WeekDay = ({ day, date, onClick }) => {
-  return (
-    <td
-      className={`cell${isEqual(date, day) ? " active" : ""}`}
-      onClick={onClick}
-      role="gridcell"
-      aria-selected={isEqual(date, day)}
-    >
-      {getDate(day)}
-    </td>
-  );
-};
-
 // Calendar component
 const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   /* State for the selected date */
@@ -124,18 +89,13 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
     setSelectedDate(startOfMonth(selectedDate));
   };
 
-  /* Function to handle the state of month end. */
-  const setMonthEnd = () => {
-    setSelectedDate(endOfMonth(selectedDate));
-  };
-
-  /* Function to handle the keystroke events for calender navigation. */
-  const handleTableKeyPress = (e) => {
+  /* Accessibility best practices:
+     Hotkeys functionality for the calender component.    
+  */
+  const handleCalendarKeyPress = (e) => {
     const keyCode = e.keyCode;
     // Check if control key was pressed
     // const control = e.ctrlKey;
-    // Use shift key to prevent browser shortcut conflicts
-    const control = e.shiftKey;
     switch (keyCode) {
       case 13: //Enter
         handleSelectDate(format(selectedDate, "yyyy-MM-dd"));
@@ -143,18 +103,6 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
       case 27: //Esc
         closeCalendar();
         return console.log("Calender closed by keystoke.");
-      case 32: //Space
-        handleSelectDate(format(selectedDate, "yyyy-MM-dd"));
-        return;
-      case 33: //Page Up
-        control ? setDatePreviousYear() : setDatePreviousMonth();
-        return;
-      case 34: //Page Down
-        control ? setDateNextYear() : setDateNextMonth();
-        return;
-      case 35: //End
-        setMonthEnd();
-        return;
       case 36: //Home
         setMonthStart();
         return;
@@ -205,37 +153,51 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
         className="table-auto"
         id="grid"
         tabIndex="0"
-        onKeyDown={handleTableKeyPress}
+        onKeyDown={handleCalendarKeyPress}
         role="grid"
         aria-label="Month"
       >
         <thead>
           <tr role="row">
             <th className="h-7" role="columnheader" aria-label="Sunday">
-              <abbr title="Sunday">Su</abbr>
+              <abbr className="border-none" title="Sunday">
+                Su
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Monday">
-              <abbr title="Monday">Mo</abbr>
+              <abbr className="border-none" title="Monday">
+                Mo
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Tuesday">
-              <abbr title="Tuesday">Tu</abbr>
+              <abbr className="border-none" title="Tuesday">
+                Tu
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Wednesday">
-              <abbr title="Wednesday">We</abbr>
+              <abbr className="border-none" title="Wednesday">
+                We
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Thursday">
-              <abbr title="Thursday">Th</abbr>
+              <abbr className="border-none" title="Thursday">
+                Th
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Friday">
-              <abbr title="Friday">Fr</abbr>
+              <abbr className="border-none" title="Friday">
+                Fr
+              </abbr>
             </th>
             <th className="h-7" role="columnheader" aria-label="Saturday">
-              <abbr title="Saturday">Sa</abbr>
+              <abbr className="border-none" title="Saturday">
+                Sa
+              </abbr>
             </th>
           </tr>
         </thead>
         <tbody>
-          {generateMonth(selectedDate).map((week, i) => (
+          {getDaysOfMonth(selectedDate).map((week, i) => (
             <tr key={`week-${i}`} role="row">
               {week.map((day, i) =>
                 day ? (
@@ -259,3 +221,42 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   );
 };
 export default Calendar;
+
+// WeekDay Component
+const WeekDay = ({ day, date, onClick }) => {
+  return (
+    <td
+      /* The expression inside the placeholder of the template literal string,
+        evaluates to be active based on the isEqual condition.
+        Cells will only be active either when they are hovered or clicked. 
+     */
+      className={`cell${isEqual(date, day) ? " active" : ""}`}
+      onClick={onClick}
+      role="gridcell"
+      aria-selected={isEqual(date, day)}
+    >
+      {getDate(day)}
+    </td>
+  );
+};
+
+// Function to get days of a month
+const getDaysOfMonth = (selectedDate) => {
+  // Get the number of days in a month of the given date.
+  const daysInMonth = getDaysInMonth(selectedDate);
+  // startOfMonth returns the start of a month for the given date
+  const startWeekday = getDay(startOfMonth(selectedDate));
+  const endWeekday = getDay(endOfMonth(selectedDate));
+  const gridDays = chunk(
+    [
+      ...Array.from({ length: startWeekday }).fill(null),
+      ...Array.from({ length: daysInMonth }, (_, i) =>
+        setDate(selectedDate, i + 1)
+      ),
+      ...Array.from({ length: 6 - endWeekday }).fill(null)
+    ],
+    7
+  );
+  console.log(gridDays);
+  return gridDays;
+};
