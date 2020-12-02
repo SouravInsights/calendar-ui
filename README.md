@@ -42,7 +42,7 @@ A reusable calendar component built using Storybook.
 
 ## Demo
 - [Live app demo](http://calendar-ui.vercel.app/) deployed using [Vercel](https://vercel.com/)
-- [Storybook app demo](https://5fc4f579119b1f00210ebbf2-haemxtnvnv.chromatic.com/).
+- [Storybook app demo](https://5fc4f579119b1f00210ebbf2-haemxtnvnv.chromatic.com/) deployed using [Chromatic](https://www.chromatic.com/)
 
 ## Improvements required:
 - Adding more variants and stories for the Calendar and CalendarControls component
