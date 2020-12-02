@@ -237,6 +237,9 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
 export default Calendar;
 
 // WeekDay Component
+
+/* Using memo here to save some unnecessary rerenders of the entire component. For example, the whole calender shouldn't rerender if we 
+switch days within the same month, only those changed should rerender. */
 const WeekDay = memo(({ day, date, onClick, value }) => {
   return (
     <td
