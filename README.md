@@ -1,4 +1,5 @@
 # calendar-ui
+A reusable calendar component built using Storybook. 
 
 ## Built using:
 - [TailwindCSS](https://tailwindcss.com/)
