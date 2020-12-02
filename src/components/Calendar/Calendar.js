@@ -138,7 +138,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   };
 
   return (
-    <div className="flex flex-col p-0.5 w-72 border-2 border-solid border-gray-600">
+    <div className="flex flex-col p-0.5 w-72 rounded-md">
       <CalendarControls
         setPrevYear={setDatePreviousYear}
         setPrevMonth={setDatePreviousMonth}

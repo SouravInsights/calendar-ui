@@ -42,7 +42,7 @@ const CalendarControls = ({
           <FontAwesomeIcon className="text-gray-600" icon={faAngleLeft} />
         </button>
       </div>
-      <div className="px-2 text-lg text-gray-800" role="heading">
+      <div className="px-2 text-lg text-gray-600" role="heading">
         <b>{format(date, "MMMM yyyy")}</b>
       </div>
       <div className="flex flex-row">
