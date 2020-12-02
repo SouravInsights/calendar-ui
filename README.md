@@ -33,14 +33,14 @@ A reusable calendar component built using Storybook.
 - **[subDays](https://date-fns.org/v2.16.1/docs/subDays)**: Subtract the specified number of days from the given date.
 - **[addDays](https://date-fns.org/v2.16.1/docs/addDays)**: Add the specified number of days to the given date.
 
-## Component design decisions:
+## Component design and development decisions:
 - It's a composition of 2 components i.e, Calendar and CalendarControls. I followed this approach because I think there's a similar pattern in the [Google Calender](https://calendar.google.com/) UI.
 - CalendarControls can have 3 variants of various header sizes and with different positions (center, left, right, etc.) See an example in this [Figma file](https://www.figma.com/file/QbMQxGK904AVFulLFqhvbm/CalendarUI?node-id=0%3A1).
 - Calendar should be accessible by keyboard events so it's important to have hotkeys for easy navigation. I've added few basic hotkeys.
 - I noticed that most of the calendars in other design systems doesn't have the button to control year navigations. I'm not sure how useful this might be but I thought it makes sense to have year controls on the calendar component.
 - It's important to have comment lines for adoptability so that other developers can easily understand and customize the component if they want to.
 
-## Demo
+## Demo:
 - [Live app demo](http://calendar-ui.vercel.app/) deployed using [Vercel](https://vercel.com/)
 - [Storybook app demo](https://5fc4f579119b1f00210ebbf2-haemxtnvnv.chromatic.com/) deployed using [Chromatic](https://www.chromatic.com/)
 
