@@ -21,7 +21,7 @@ const CalendarControls = ({
   date,
 }) => {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-between max-w-sm">
       <div className="flex flex-row">
         <button
           className="px-2.5"
