@@ -5,8 +5,9 @@ import {
   faAngleLeft,
   faAngleRight,
   faAngleDoubleLeft,
-  faAngleDoubleRight
+  faAngleDoubleRight,
 } from "@fortawesome/free-solid-svg-icons";
+import "./Calendar.css";
 
 const CalendarControls = ({
   setPrevYear,
@@ -17,7 +18,7 @@ const CalendarControls = ({
   nextYear,
   prevMonth,
   nextMonth,
-  date
+  date,
 }) => {
   return (
     <div className="flex flex-row justify-between text-base bg-blue-600 text-white border border-black border-solid">

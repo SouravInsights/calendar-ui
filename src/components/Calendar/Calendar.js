@@ -15,10 +15,11 @@ import {
   subWeeks,
   addWeeks,
   subDays,
-  addDays
+  addDays,
 } from "date-fns";
 import { chunk } from "lodash";
 import CalendarControls from "./CalendarControls";
+import "./Calendar.css";
 
 // Calendar component
 const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
@@ -253,7 +254,7 @@ const getDaysOfMonth = (selectedDate) => {
       ...Array.from({ length: daysInMonth }, (_, i) =>
         setDate(selectedDate, i + 1)
       ),
-      ...Array.from({ length: 6 - endWeekday }).fill(null)
+      ...Array.from({ length: 6 - endWeekday }).fill(null),
     ],
     7
   );
