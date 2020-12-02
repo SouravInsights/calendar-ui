@@ -15,3 +15,4 @@ A reusable calendar component built using Storybook.
 - `yarn build`
 - `yarn storybook`
 
+Take a look at the [live demo](http://calendar-ui.vercel.app/) and the [storybook app](https://5fc4f579119b1f00210ebbf2-haemxtnvnv.chromatic.com/).
