@@ -24,13 +24,13 @@ function App() {
   };
 
   return (
-    <>
+    <div className="flex justify-center pt-12">
       <Calendar
         date={date}
         handleSelectDate={handleSelectDate}
         closeCalendar={closeCalendar}
       />
-    </>
+    </div>
   );
 }
 

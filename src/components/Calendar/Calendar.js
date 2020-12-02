@@ -138,7 +138,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   };
 
   return (
-    <div className="flex flex-col p-0.5 w-72">
+    <div className="flex flex-col p-0.5 w-72 border-2 border-solid border-gray-600">
       <CalendarControls
         setPrevYear={setDatePreviousYear}
         setPrevMonth={setDatePreviousMonth}
@@ -151,7 +151,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
         date={selectedDate}
       />
       <table
-        className="table-auto mt-4"
+        className="mt-4"
         id="grid"
         tabIndex="0"
         onKeyDown={handleCalendarKeyPress}
@@ -221,11 +221,10 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
                     onClick={() => handleDateSelection(day)}
                     date={selectedDate}
                     key={`day-cell-${i}`}
+                    value={getDate(day)}
                   />
                 ) : (
-                  <WeekDay className="empty" key={`day-cell-${i}`}>
-                    &nbsp;
-                  </WeekDay>
+                  <WeekDay className="border-none" key={`day-cell-${i}`} />
                 )
               )}
             </tr>
@@ -238,21 +237,21 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
 export default Calendar;
 
 // WeekDay Component
-const WeekDay = ({ day, date, onClick }) => {
+const WeekDay = ({ day, date, onClick, value }) => {
   return (
     <td
       /* The expression inside the placeholder of the template literal string,
         evaluates to be active based on the isEqual condition.
         Cells will only be active either when they are hovered or clicked. 
      */
-      className={`border text-center border-solid border-gray-300  h-7 text-sm text-gray-700 hover:text-white hover:bg-blue-500  ${
+      className={`border text-center border-solid border-gray-300 p-2 text-sm text-gray-700 hover:text-white hover:bg-blue-400  ${
         isEqual(date, day) ? "bg-blue-500 text-white" : ""
       }`}
       onClick={onClick}
       role="gridcell"
       aria-selected={isEqual(date, day)}
     >
-      {getDate(day)}
+      {value}
     </td>
   );
 };
