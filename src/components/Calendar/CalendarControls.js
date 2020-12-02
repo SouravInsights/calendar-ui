@@ -21,7 +21,7 @@ const CalendarControls = ({
   date,
 }) => {
   return (
-    <div className="flex flex-row justify-between text-base bg-blue-600 text-white border border-black border-solid">
+    <div className="flex flex-row justify-between">
       <div className="flex flex-row">
         <button
           className="px-2.5"
@@ -30,7 +30,7 @@ const CalendarControls = ({
           onKeyPress={prevYear}
           aria-label="Previous year"
         >
-          <FontAwesomeIcon icon={faAngleDoubleLeft} />
+          <FontAwesomeIcon className="text-gray-600" icon={faAngleDoubleLeft} />
         </button>
         <button
           className="px-2.5"
@@ -39,10 +39,10 @@ const CalendarControls = ({
           onKeyPress={prevMonth}
           aria-label="Previous month"
         >
-          <FontAwesomeIcon icon={faAngleLeft} />
+          <FontAwesomeIcon className="text-gray-600" icon={faAngleLeft} />
         </button>
       </div>
-      <div className="px-4" role="heading">
+      <div className="px-2 text-lg text-gray-800" role="heading">
         <b>{format(date, "MMMM yyyy")}</b>
       </div>
       <div className="flex flex-row">
@@ -53,7 +53,7 @@ const CalendarControls = ({
           onKeyPress={nextMonth}
           aria-label="Next year"
         >
-          <FontAwesomeIcon icon={faAngleRight} />
+          <FontAwesomeIcon className="text-gray-600" icon={faAngleRight} />
         </button>
         <button
           className="px-2.5"
@@ -62,7 +62,10 @@ const CalendarControls = ({
           onKeyPress={nextYear}
           aria-label="Next year"
         >
-          <FontAwesomeIcon icon={faAngleDoubleRight} />
+          <FontAwesomeIcon
+            className="text-gray-600"
+            icon={faAngleDoubleRight}
+          />
         </button>
       </div>
     </div>

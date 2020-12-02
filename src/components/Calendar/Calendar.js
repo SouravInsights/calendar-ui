@@ -138,7 +138,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
   };
 
   return (
-    <div className="flex flex-col border-black border-solid border p-0.5 w-72">
+    <div className="flex flex-col p-0.5 w-72">
       <CalendarControls
         setPrevYear={setDatePreviousYear}
         setPrevMonth={setDatePreviousMonth}
@@ -151,7 +151,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
         date={selectedDate}
       />
       <table
-        className="table-auto"
+        className="table-auto mt-4"
         id="grid"
         tabIndex="0"
         onKeyDown={handleCalendarKeyPress}
@@ -160,40 +160,54 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
       >
         <thead>
           <tr role="row">
-            <th className="h-7" role="columnheader" aria-label="Sunday">
-              <abbr className="border-none" title="Sunday">
-                Su
-              </abbr>
+            <th
+              className="h-7 text-xs text-gray-500"
+              role="columnheader"
+              aria-label="Sunday"
+            >
+              <abbr className="no-underline">Su</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Monday">
-              <abbr className="border-none" title="Monday">
-                Mo
-              </abbr>
+            <th
+              className="h-7 text-xs text-gray-500"
+              role="columnheader"
+              aria-label="Monday"
+            >
+              <abbr className="no-underline">Mo</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Tuesday">
-              <abbr className="border-none" title="Tuesday">
-                Tu
-              </abbr>
+            <th
+              className="h-7 text-xs text-gray-500"
+              role="columnheader"
+              aria-label="Tuesday"
+            >
+              <abbr className="no-underline">Tu</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Wednesday">
-              <abbr className="border-none" title="Wednesday">
-                We
-              </abbr>
+            <th
+              className="h-7 text-xs text-gray-500"
+              role="columnheader"
+              aria-label="Wednesday"
+            >
+              <abbr className="no-underline">We</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Thursday">
-              <abbr className="border-none" title="Thursday">
-                Th
-              </abbr>
+            <th
+              className="h-7 text-xs text-gray-500"
+              role="columnheader"
+              aria-label="Thursday"
+            >
+              <abbr className="no-underline">Th</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Friday">
-              <abbr className="border-none" title="Friday">
-                Fr
-              </abbr>
+            <th
+              className="h-7 text-xs  text-gray-500"
+              role="columnheader"
+              aria-label="Friday"
+            >
+              <abbr className="no-underline">Fr</abbr>
             </th>
-            <th className="h-7" role="columnheader" aria-label="Saturday">
-              <abbr className="border-none" title="Saturday">
-                Sa
-              </abbr>
+            <th
+              className="h-7 text-xs  text-gray-500"
+              role="columnheader"
+              aria-label="Saturday"
+            >
+              <abbr className="no-underline">Sa</abbr>
             </th>
           </tr>
         </thead>
@@ -231,7 +245,9 @@ const WeekDay = ({ day, date, onClick }) => {
         evaluates to be active based on the isEqual condition.
         Cells will only be active either when they are hovered or clicked. 
      */
-      className={`cell${isEqual(date, day) ? " active" : ""}`}
+      className={`border text-center border-solid border-gray-300  h-7 text-sm text-gray-700 hover:text-white hover:bg-blue-500  ${
+        isEqual(date, day) ? "bg-blue-500 text-white" : ""
+      }`}
       onClick={onClick}
       role="gridcell"
       aria-selected={isEqual(date, day)}
