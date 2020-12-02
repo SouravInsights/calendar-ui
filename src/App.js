@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState } from "react";
 import { format } from "date-fns";
+import "./styles/main.css";
 
 import Calendar from "./components/Calendar/Calendar";
 /* import CalendarControls from "./components/Calendar/CalendarControls"; */
