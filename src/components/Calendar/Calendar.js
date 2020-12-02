@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo } from "react";
 import {
   format,
   startOfMonth,
@@ -224,7 +224,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
                     value={getDate(day)}
                   />
                 ) : (
-                  <WeekDay className="border-none" key={`day-cell-${i}`} />
+                  <td></td>
                 )
               )}
             </tr>
@@ -237,7 +237,7 @@ const Calendar = ({ date, handleSelectDate, closeCalendar }) => {
 export default Calendar;
 
 // WeekDay Component
-const WeekDay = ({ day, date, onClick, value }) => {
+const WeekDay = memo(({ day, date, onClick, value }) => {
   return (
     <td
       /* The expression inside the placeholder of the template literal string,
@@ -254,7 +254,7 @@ const WeekDay = ({ day, date, onClick, value }) => {
       {value}
     </td>
   );
-};
+});
 
 // Function to get days of a month
 const getDaysOfMonth = (selectedDate) => {
