@@ -23,7 +23,7 @@ A reusable calendar component built using Storybook.
 - [**subYears**](https://date-fns.org/v2.16.1/docs/subYears): Subtract the specified number of years from the given date.
 - [**addYears**](https://date-fns.org/v2.16.1/docs/addYears): Add the specified number of years to the given date.
 - **[getDaysInMonth](https://date-fns.org/v2.16.1/docs/getDaysInMonth)**: Get the number of days in a month of the given date.
-- [**getDay](https://date-fns.org/v2.16.1/docs/getDay):** Get the day of the week of the given date.
+- [**getDay**](https://date-fns.org/v2.16.1/docs/getDay):** Get the day of the week of the given date.
 - **[endOfMonth](https://date-fns.org/v2.16.1/docs/endOfMonth)**: Return the end of a month for the given date. The result will be in the local timezone.
 - **[setDate](https://date-fns.org/v2.16.1/docs/setDate)**: Set the day of the month to the given date.
 - **[getDate](https://date-fns.org/v2.16.1/docs/getDate)**: Get the day of the month of the given date.
