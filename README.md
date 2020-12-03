@@ -22,16 +22,16 @@ A reusable calendar component built using Storybook.
 - [**addMonths**](https://date-fns.org/v2.16.1/docs/addMonths): Add the specified number of months to the given date.
 - [**subYears**](https://date-fns.org/v2.16.1/docs/subYears): Subtract the specified number of years from the given date.
 - [**addYears**](https://date-fns.org/v2.16.1/docs/addYears): Add the specified number of years to the given date.
-- **[getDaysInMonth](https://date-fns.org/v2.16.1/docs/getDaysInMonth)**: Get the number of days in a month of the given date.
-- [**getDay**](https://date-fns.org/v2.16.1/docs/getDay):** Get the day of the week of the given date.
-- **[endOfMonth](https://date-fns.org/v2.16.1/docs/endOfMonth)**: Return the end of a month for the given date. The result will be in the local timezone.
-- **[setDate](https://date-fns.org/v2.16.1/docs/setDate)**: Set the day of the month to the given date.
-- **[getDate](https://date-fns.org/v2.16.1/docs/getDate)**: Get the day of the month of the given date.
-- **[isEqual](https://date-fns.org/v2.16.1/docs/isEqual):** Are the given dates equal?
+- [**getDaysInMonth**](https://date-fns.org/v2.16.1/docs/getDaysInMonth): Get the number of days in a month of the given date.
+- [**getDay**](https://date-fns.org/v2.16.1/docs/getDay): Get the day of the week of the given date.
+- [**endOfMonth**](https://date-fns.org/v2.16.1/docs/endOfMonth): Return the end of a month for the given date. The result will be in the local timezone.
+- [**setDate**](https://date-fns.org/v2.16.1/docs/setDate): Set the day of the month to the given date.
+- [**getDate**](https://date-fns.org/v2.16.1/docs/getDate): Get the day of the month of the given date.
+- [**isEqual**](https://date-fns.org/v2.16.1/docs/isEqual): Are the given dates equal?
 - [**subWeeks**](https://date-fns.org/v2.16.1/docs/subWeeks): Subtract the specified number of weeks from the given date.
-- **[addWeeks](https://date-fns.org/v2.16.1/docs/addWeeks)**: Add the specified number of week to the given date.
-- **[subDays](https://date-fns.org/v2.16.1/docs/subDays)**: Subtract the specified number of days from the given date.
-- **[addDays](https://date-fns.org/v2.16.1/docs/addDays)**: Add the specified number of days to the given date.
+- [**addWeeks**](https://date-fns.org/v2.16.1/docs/addWeeks): Add the specified number of week to the given date.
+- [**subDays**](https://date-fns.org/v2.16.1/docs/subDays): Subtract the specified number of days from the given date.
+- [**addDays**](https://date-fns.org/v2.16.1/docs/addDays): Add the specified number of days to the given date.
 
 ## Component design and development decisions:
 - It's a composition of 2 components i.e, Calendar and CalendarControls. I followed this approach because I think there's a similar pattern in the [Google Calender](https://calendar.google.com/) UI.
