@@ -40,6 +40,34 @@ A reusable calendar component built using Storybook.
 - I noticed that most of the calendars in other design systems doesn't have the button to control year navigations. I'm not sure how useful this might be but I thought it makes sense to have year controls on the calendar component.
 - It's important to have comment lines for adoptability so that other developers can easily understand and customize the component if they want to.
 
+## Component API:
+
+### CalendarControls API:
+> As of now, the CalendarControls component has two variants, one is `day` variant and the other one is `default` variant. We could also have other variants like `month`, `year` etc. Please find some examples below of how you could use different variants. 
+ 
+#### Example of the `default` variant: 
+`<CalendarControls
+  setPreviousYear={setPreviousYear}
+  setPreviousMonth={setPreviousMonth}
+  setNextMonth={setNextMonth}
+  setNextYear={setNextYear}
+  prevYear={(e) => handleKeyPress(e, setPreviousYear)}
+  prevMonth={(e) => handleKeyPress(e, setPreviousMonth)}
+  nextMonth={(e) => handleKeyPress(e, setNextMonth)}
+  nextYear={(e) => handleKeyPress(e, setNextYear)}
+  date={selectedDate}
+/>`
+
+#### Example of the `day` variant: 
+`<CalendarControls
+  variant="day"
+  nextDay={(e) => handleKeyPress(e, setNextDay)}
+  prevDay={(e) => handleKeyPress(e, setPreviousDay)}
+  setPreviousDay={setPreviousDay}
+  setNextDay={setNextDay}
+  date={selectedDate}
+/>`
+
 ## Demo:
 - [Live app demo](http://calendar-ui.vercel.app/) deployed using [Vercel](https://vercel.com/)
 - [Storybook app demo](https://5fc4f579119b1f00210ebbf2-haemxtnvnv.chromatic.com/) deployed using [Chromatic](https://www.chromatic.com/)
