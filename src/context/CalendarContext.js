@@ -1,6 +1,9 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 
-const CalendarProvider = () => {
+const CalendarContext = createContext();
+
+const CalendarProvider = ({ children }) => {
+  /* State for the selected date */
   const [selectedDate, setSelectedDate] = useState(new Date(date));
   console.log("The selected date is:", selectedDate);
 
@@ -68,8 +71,10 @@ const CalendarProvider = () => {
   };
 
   return (
-    <div>
-      <div></div>
-    </div>
+    <CalendarContext.Provider value={[selectedDate, setSelectedDate]}>
+      {children}
+    </CalendarContext.Provider>
   );
 };
+
+export { CalendarContext, CalendarProvider };
