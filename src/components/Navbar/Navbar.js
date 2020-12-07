@@ -3,24 +3,16 @@ import { CalendarContext } from "../../context/CalendarContext";
 import CalendarControls from "../Calendar/CalendarControls";
 import { format } from "date-fns";
 
-const Navbar = ({ handleSelectDate, closeCalendar }) => {
+const Navbar = ({ handleSelectDate }) => {
   const {
     selectedDate,
     setNextDay,
     setPreviousDay,
-    setNextWeek,
-    setPreviousWeek,
     setDateNextMonth,
     setDatePreviousMonth,
-    setMonthStart,
     setDateNextYear,
     setDatePreviousYear,
   } = React.useContext(CalendarContext);
-
-  const handleDateSelection = (date) => {
-    const dateString = format(date, "yyyy-MM-dd");
-    handleSelectDate(dateString);
-  };
 
   const handleKeyPress = (e, cb) => {
     const charCode = e.charCode;
@@ -36,10 +28,9 @@ const Navbar = ({ handleSelectDate, closeCalendar }) => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <CalendarControls
-              setPrevYear={setDatePreviousYear}
-              setPrevMonth={setDatePreviousMonth}
-              setNextMonth={setDateNextMonth}
-              setNextYear={setDateNextYear}
+              variant="day"
+              setNextDay={(e) => handleKeyPress(e, setNextDay)}
+              setPrevDay={(e) => handleKeyPress(e, setPreviousDay)}
               prevYear={(e) => handleKeyPress(e, setDatePreviousYear)}
               prevMonth={(e) => handleKeyPress(e, setDatePreviousMonth)}
               nextMonth={(e) => handleKeyPress(e, setDateNextMonth)}
