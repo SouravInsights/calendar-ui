@@ -24,11 +24,11 @@ const Calendar = ({ handleSelectDate, closeCalendar }) => {
     setPreviousDay,
     setNextWeek,
     setPreviousWeek,
-    setDateNextMonth,
-    setDatePreviousMonth,
+    setNextMonth,
+    setPreviousMonth,
     setMonthStart,
-    setDateNextYear,
-    setDatePreviousYear,
+    setNextYear,
+    setPreviousYear,
   } = React.useContext(CalendarContext);
 
   /* Accessibility best practices:
@@ -81,14 +81,14 @@ const Calendar = ({ handleSelectDate, closeCalendar }) => {
   return (
     <div className="flex flex-col p-0.5 w-72 rounded-md">
       <CalendarControls
-        setPrevYear={setDatePreviousYear}
-        setPrevMonth={setDatePreviousMonth}
-        setNextMonth={setDateNextMonth}
-        setNextYear={setDateNextYear}
-        prevYear={(e) => handleKeyPress(e, setDatePreviousYear)}
-        prevMonth={(e) => handleKeyPress(e, setDatePreviousMonth)}
-        nextMonth={(e) => handleKeyPress(e, setDateNextMonth)}
-        nextYear={(e) => handleKeyPress(e, setDateNextYear)}
+        setPreviousYear={setPreviousYear}
+        setPreviousMonth={setPreviousMonth}
+        setNextMonth={setNextMonth}
+        setNextYear={setNextYear}
+        prevYear={(e) => handleKeyPress(e, setPreviousYear)}
+        prevMonth={(e) => handleKeyPress(e, setPreviousMonth)}
+        nextMonth={(e) => handleKeyPress(e, setNextMonth)}
+        nextYear={(e) => handleKeyPress(e, setNextYear)}
         date={selectedDate}
       />
       <table

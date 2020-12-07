@@ -10,12 +10,12 @@ import {
 import "./Calendar.css";
 
 const CalendarControls = ({
-  setPrevYear,
-  setPrevMonth,
+  setPreviousYear,
   setNextYear,
+  setPreviousMonth,
   setNextMonth,
   setNextDay,
-  setPrevDay,
+  setPreviousDay,
   prevYear,
   nextYear,
   prevMonth,
@@ -31,7 +31,7 @@ const CalendarControls = ({
             <button
               className="px-2.5"
               tabIndex="0"
-              onClick={setPrevDay}
+              onClick={setPreviousDay}
               aria-label="Previous Day"
             >
               <FontAwesomeIcon className="text-gray-600" icon={faAngleLeft} />
@@ -60,7 +60,7 @@ const CalendarControls = ({
             <button
               className="px-2.5"
               tabIndex="0"
-              onClick={setPrevYear}
+              onClick={setPreviousYear}
               onKeyPress={prevYear}
               aria-label="Previous year"
             >
@@ -72,7 +72,7 @@ const CalendarControls = ({
             <button
               className="px-2.5"
               tabIndex="0"
-              onClick={setPrevMonth}
+              onClick={setPreviousMonth}
               onKeyPress={prevMonth}
               aria-label="Previous month"
             >

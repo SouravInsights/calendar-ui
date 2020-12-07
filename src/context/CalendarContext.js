@@ -56,24 +56,24 @@ const CalendarProvider = ({ children }) => {
   };
 
   /* Function to handle navigations to previous month. */
-  const setDatePreviousMonth = () => {
+  const setPreviousMonth = () => {
     // Decrements the selectedDate by 1 month
     setSelectedDate(subMonths(selectedDate, 1));
   };
 
   /* Function to handle navigations to next month.  */
-  const setDateNextMonth = () => {
+  const setNextMonth = () => {
     // Increments the selectedDate by 1 month and sets the selectedDate
     setSelectedDate(addMonths(selectedDate, 1));
   };
 
   /* Function to handle the state of previous year. */
-  const setDatePreviousYear = () => {
+  const setPreviousYear = () => {
     setSelectedDate(subYears(selectedDate, 1));
   };
 
   /* Function to handle the state of next year. */
-  const setDateNextYear = () => {
+  const setNextYear = () => {
     setSelectedDate(addYears(selectedDate, 1));
   };
 
@@ -91,11 +91,11 @@ const CalendarProvider = ({ children }) => {
         setPreviousDay,
         setNextWeek,
         setPreviousWeek,
-        setDateNextMonth,
-        setDatePreviousMonth,
+        setNextMonth,
+        setPreviousMonth,
         setMonthStart,
-        setDateNextYear,
-        setDatePreviousYear,
+        setNextYear,
+        setPreviousYear,
       }}
     >
       {children}

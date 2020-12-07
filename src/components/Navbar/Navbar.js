@@ -31,7 +31,7 @@ const Navbar = ({ handleSelectDate }) => {
               variant="day"
               nextDay={(e) => handleKeyPress(e, setNextDay)}
               prevDay={(e) => handleKeyPress(e, setPreviousDay)}
-              setPrevDay={setPreviousDay}
+              setPreviousDay={setPreviousDay}
               setNextDay={setNextDay}
               date={selectedDate}
             />
