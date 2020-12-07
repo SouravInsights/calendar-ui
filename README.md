@@ -46,7 +46,8 @@ A reusable calendar component built using Storybook.
 > As of now, the CalendarControls component has two variants, one is `day` variant and the other one is `default` variant. We could also have other variants like `month`, `year` etc. Please find some examples below of how you could use different variants. 
  
 #### Example of the `default` variant: 
-`<CalendarControls
+```
+<CalendarControls
   setPreviousYear={setPreviousYear}
   setPreviousMonth={setPreviousMonth}
   setNextMonth={setNextMonth}
@@ -56,17 +57,20 @@ A reusable calendar component built using Storybook.
   nextMonth={(e) => handleKeyPress(e, setNextMonth)}
   nextYear={(e) => handleKeyPress(e, setNextYear)}
   date={selectedDate}
-/>`
+/>
+```
 
 #### Example of the `day` variant: 
-`<CalendarControls
+```
+<CalendarControls
   variant="day"
   nextDay={(e) => handleKeyPress(e, setNextDay)}
   prevDay={(e) => handleKeyPress(e, setPreviousDay)}
   setPreviousDay={setPreviousDay}
   setNextDay={setNextDay}
   date={selectedDate}
-/>`
+/>
+```
 
 ## Demo:
 - [Live app demo](http://calendar-ui.vercel.app/) deployed using [Vercel](https://vercel.com/)
