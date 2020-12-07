@@ -89,7 +89,6 @@ const Calendar = ({ handleSelectDate, closeCalendar }) => {
   return (
     <div className="flex flex-col p-0.5 w-72 rounded-md">
       <CalendarControls
-        variant="default"
         setPrevYear={setDatePreviousYear}
         setPrevMonth={setDatePreviousMonth}
         setNextMonth={setDateNextMonth}
