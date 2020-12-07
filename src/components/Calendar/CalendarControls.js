@@ -25,7 +25,36 @@ const CalendarControls = ({
 }) => {
   return (
     <div>
-      {variant === "default" ? (
+      {variant === "day" ? (
+        <div className="flex flex-row justify-between max-w-sm">
+          <div className="flex flex-row">
+            <button
+              className="px-2.5"
+              tabIndex="0"
+              onClick={setPrevDay}
+              aria-label="Previous Day"
+            >
+              <FontAwesomeIcon className="text-gray-600" icon={faAngleLeft} />
+            </button>
+            <div className="flex flex-row">
+              <button
+                className="px-2.5"
+                tabIndex="0"
+                onClick={setNextDay}
+                aria-label="Next Day"
+              >
+                <FontAwesomeIcon
+                  className="text-gray-600"
+                  icon={faAngleRight}
+                />
+              </button>
+            </div>
+            <div className="px-2 text-lg text-gray-600" role="heading">
+              <b>{format(date, "MMMM yyyy")}</b>
+            </div>
+          </div>
+        </div>
+      ) : (
         <div className="flex flex-row justify-between max-w-sm">
           <div className="flex flex-row">
             <button
@@ -75,35 +104,6 @@ const CalendarControls = ({
                 icon={faAngleDoubleRight}
               />
             </button>
-          </div>
-        </div>
-      ) : (
-        <div className="flex flex-row justify-between max-w-sm">
-          <div className="flex flex-row">
-            <button
-              className="px-2.5"
-              tabIndex="0"
-              onClick={setPrevDay}
-              aria-label="Previous Day"
-            >
-              <FontAwesomeIcon className="text-gray-600" icon={faAngleLeft} />
-            </button>
-            <div className="flex flex-row">
-              <button
-                className="px-2.5"
-                tabIndex="0"
-                onClick={setNextDay}
-                aria-label="Next Day"
-              >
-                <FontAwesomeIcon
-                  className="text-gray-600"
-                  icon={faAngleRight}
-                />
-              </button>
-            </div>
-            <div className="px-2 text-lg text-gray-600" role="heading">
-              <b>{format(date, "MMMM yyyy")}</b>
-            </div>
           </div>
         </div>
       )}
