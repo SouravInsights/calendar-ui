@@ -2,36 +2,12 @@ import React, { useState } from "react";
 import { format } from "date-fns";
 import "./styles/main.css";
 
-import Calendar from "./components/Calendar/Calendar";
-/* import CalendarControls from "./components/Calendar/CalendarControls"; */
+import Home from "./pages/home";
+// import Calendar from "./components/Calendar/Calendar";
+// import CalendarControls from "./components/Calendar/CalendarControls";
 
 function App() {
-  const [showDatepicker, setShowDatePicker] = useState(true);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [date, setDate] = useState(format(new Date(), "yyyy-MM-dddd"));
-  const toggleCalendar = (e) => {
-    setShowDatePicker(false);
-    setShowCalendar(true);
-  };
-  const handleSelectDate = (date) => {
-    setDate(date);
-    setShowDatePicker(true);
-    setShowCalendar(false);
-  };
-  const closeCalendar = () => {
-    setShowDatePicker(true);
-    setShowCalendar(false);
-  };
-
-  return (
-    <div className="flex justify-center pt-12">
-      <Calendar
-        date={date}
-        handleSelectDate={handleSelectDate}
-        closeCalendar={closeCalendar}
-      />
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;

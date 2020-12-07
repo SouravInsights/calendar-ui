@@ -14,6 +14,8 @@ const CalendarControls = ({
   setPrevMonth,
   setNextYear,
   setNextMonth,
+  setNextDay,
+  setPrevDay,
   prevYear,
   nextYear,
   prevMonth,
