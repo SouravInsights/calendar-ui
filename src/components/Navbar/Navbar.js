@@ -29,12 +29,10 @@ const Navbar = ({ handleSelectDate }) => {
           <div className="flex items-center">
             <CalendarControls
               variant="day"
-              setNextDay={(e) => handleKeyPress(e, setNextDay)}
-              setPrevDay={(e) => handleKeyPress(e, setPreviousDay)}
-              prevYear={(e) => handleKeyPress(e, setDatePreviousYear)}
-              prevMonth={(e) => handleKeyPress(e, setDatePreviousMonth)}
-              nextMonth={(e) => handleKeyPress(e, setDateNextMonth)}
-              nextYear={(e) => handleKeyPress(e, setDateNextYear)}
+              nextDay={(e) => handleKeyPress(e, setNextDay)}
+              prevDay={(e) => handleKeyPress(e, setPreviousDay)}
+              setPrevDay={setPreviousDay}
+              setNextDay={setNextDay}
               date={selectedDate}
             />
           </div>

@@ -2,6 +2,14 @@ import React, { useState, memo } from "react";
 import {
   format,
   startOfMonth,
+  subMonths,
+  addMonths,
+  subYears,
+  addYears,
+  subWeeks,
+  addWeeks,
+  subDays,
+  addDays,
   getDaysInMonth,
   getDay,
   endOfMonth,
@@ -81,7 +89,6 @@ const Calendar = ({ handleSelectDate, closeCalendar }) => {
   return (
     <div className="flex flex-col p-0.5 w-72 rounded-md">
       <CalendarControls
-        variant="default"
         setPrevYear={setDatePreviousYear}
         setPrevMonth={setDatePreviousMonth}
         setNextMonth={setDateNextMonth}
