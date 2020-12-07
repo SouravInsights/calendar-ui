@@ -1,12 +1,52 @@
 import React from "react";
+import { CalendarContext } from "../../context/CalendarContext";
 import CalendarControls from "../Calendar/CalendarControls";
+import { format } from "date-fns";
 
-const Navbar = ({}) => {
+const Navbar = ({ handleSelectDate, closeCalendar }) => {
+  const {
+    selectedDate,
+    setNextDay,
+    setPreviousDay,
+    setNextWeek,
+    setPreviousWeek,
+    setDateNextMonth,
+    setDatePreviousMonth,
+    setMonthStart,
+    setDateNextYear,
+    setDatePreviousYear,
+  } = React.useContext(CalendarContext);
+
+  const handleDateSelection = (date) => {
+    const dateString = format(date, "yyyy-MM-dd");
+    handleSelectDate(dateString);
+  };
+
+  const handleKeyPress = (e, cb) => {
+    const charCode = e.charCode;
+    if (charCode === 13 || charCode === 32) {
+      cb(new Error("handleKeyPress never got executed."));
+      console.log("handleKeyPress got executed.");
+    }
+  };
+
   return (
     <nav className="bg-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">{/* <CalendarControls /> */}</div>
+          <div className="flex items-center">
+            <CalendarControls
+              setPrevYear={setDatePreviousYear}
+              setPrevMonth={setDatePreviousMonth}
+              setNextMonth={setDateNextMonth}
+              setNextYear={setDateNextYear}
+              prevYear={(e) => handleKeyPress(e, setDatePreviousYear)}
+              prevMonth={(e) => handleKeyPress(e, setDatePreviousMonth)}
+              nextMonth={(e) => handleKeyPress(e, setDateNextMonth)}
+              nextYear={(e) => handleKeyPress(e, setDateNextYear)}
+              date={selectedDate}
+            />
+          </div>
           <div className="-mr-2 flex md:hidden">
             {/* Mobile menu button  */}
             <button className="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
