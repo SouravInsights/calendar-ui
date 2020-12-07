@@ -71,7 +71,21 @@ const CalendarProvider = ({ children }) => {
   };
 
   return (
-    <CalendarContext.Provider value={[selectedDate, setSelectedDate]}>
+    <CalendarContext.Provider
+      value={{
+        selectedDate,
+        setSelectedDate,
+        setNextDay,
+        setPreviousDay,
+        setNextWeek,
+        setPreviousWeek,
+        setDateNextMonth,
+        setDatePreviousMonth,
+        setMonthStart,
+        setDateNextYear,
+        setDatePreviousYear,
+      }}
+    >
       {children}
     </CalendarContext.Provider>
   );

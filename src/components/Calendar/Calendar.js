@@ -19,6 +19,8 @@ import {
 } from "date-fns";
 import { chunk } from "lodash";
 import CalendarControls from "./CalendarControls";
+import { CalendarContext } from "../../context/CalendarContext";
+
 import "./Calendar.css";
 
 // Calendar component
