@@ -1,10 +1,22 @@
 import React, { createContext, useState } from "react";
+import {
+  format,
+  startOfMonth,
+  subMonths,
+  addMonths,
+  subYears,
+  addYears,
+  subWeeks,
+  addWeeks,
+  subDays,
+  addDays,
+} from "date-fns";
 
 const CalendarContext = createContext();
 
 const CalendarProvider = ({ children }) => {
   /* State for the selected date */
-  const [selectedDate, setSelectedDate] = useState(new Date(date));
+  const [selectedDate, setSelectedDate] = useState(new Date());
   console.log("The selected date is:", selectedDate);
 
   /* Function to handle navigations to go to previous day.  */

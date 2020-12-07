@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { format } from "date-fns";
+import { CalendarProvider } from "../context/CalendarContext";
 import Calendar from "../components/Calendar/Calendar";
 import Navbar from "../components/Navbar/Navbar";
 /* import CalendarControls from "../components/Calendar/CalendarControls"; */
@@ -11,12 +12,12 @@ function Home() {
   };
 
   return (
-    <>
+    <CalendarProvider date={date}>
       <Navbar />
       <div className="flex justify-center pt-12">
-        <Calendar date={date} handleSelectDate={handleSelectDate} />
+        <Calendar handleSelectDate={handleSelectDate} />
       </div>
-    </>
+    </CalendarProvider>
   );
 }
 
