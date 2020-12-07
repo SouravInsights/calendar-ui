@@ -3,24 +3,13 @@ import { CalendarContext } from "../../context/CalendarContext";
 import CalendarControls from "../Calendar/CalendarControls";
 import { format } from "date-fns";
 
-const Navbar = ({ handleSelectDate }) => {
+const Navbar = () => {
   const {
     selectedDate,
     setNextDay,
     setPreviousDay,
-    setDateNextMonth,
-    setDatePreviousMonth,
-    setDateNextYear,
-    setDatePreviousYear,
+    handleKeyPress,
   } = React.useContext(CalendarContext);
-
-  const handleKeyPress = (e, cb) => {
-    const charCode = e.charCode;
-    if (charCode === 13 || charCode === 32) {
-      cb(new Error("handleKeyPress never got executed."));
-      console.log("handleKeyPress got executed.");
-    }
-  };
 
   return (
     <nav className="bg-gray-100">
@@ -31,7 +20,7 @@ const Navbar = ({ handleSelectDate }) => {
               variant="day"
               nextDay={(e) => handleKeyPress(e, setNextDay)}
               prevDay={(e) => handleKeyPress(e, setPreviousDay)}
-              setPreviousDay={setPreviousDay}
+              setPrevDay={setPreviousDay}
               setNextDay={setNextDay}
               date={selectedDate}
             />

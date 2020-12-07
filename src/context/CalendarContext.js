@@ -82,6 +82,53 @@ const CalendarProvider = ({ children }) => {
     setSelectedDate(startOfMonth(selectedDate));
   };
 
+  /* Accessibility best practices:
+     Hotkeys functionality for the calender component.    
+  */
+  const handleCalendarKeyPress = (e) => {
+    const keyCode = e.keyCode;
+    // Check if control key was pressed
+    // const control = e.ctrlKey;
+    switch (keyCode) {
+      case 13: //Enter
+        handleSelectDate(format(selectedDate, "yyyy-MM-dd"));
+        return console.log("Enter clicked");
+      case 27: //Esc
+        closeCalendar();
+        return console.log("Calender closed by keystoke.");
+      case 36: //Home
+        setMonthStart();
+        return;
+      case 37: //Left
+        setPreviousDay();
+        return;
+      case 38: //Up
+        setPreviousWeek();
+        return;
+      case 39: //Right
+        setNextDay();
+        return;
+      case 40: //Down
+        setNextWeek();
+        return;
+      default:
+        return;
+    }
+  };
+
+  const handleDateSelection = (date) => {
+    const dateString = format(date, "yyyy-MM-dd");
+    handleSelectDate(dateString);
+  };
+
+  const handleKeyPress = (e, cb) => {
+    const charCode = e.charCode;
+    if (charCode === 13 || charCode === 32) {
+      cb(new Error("handleKeyPress never got executed."));
+      console.log("handleKeyPress got executed.");
+    }
+  };
+
   return (
     <CalendarContext.Provider
       value={{
@@ -96,6 +143,9 @@ const CalendarProvider = ({ children }) => {
         setMonthStart,
         setNextYear,
         setPreviousYear,
+        handleCalendarKeyPress,
+        handleDateSelection,
+        handleKeyPress,
       }}
     >
       {children}
