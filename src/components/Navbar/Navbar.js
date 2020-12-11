@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { CalendarContext } from "../../context/CalendarContext";
 import CalendarControls from "../Calendar/CalendarControls";
 import { format } from "date-fns";
 
-const Navbar = ({ handleSelectDate }) => {
+const Navbar = () => {
   const {
     selectedDate,
     setNextDay,
     setPreviousDay,
     handleKeyPress,
-  } = React.useContext(CalendarContext);
+  } = useContext(CalendarContext);
 
   return (
     <nav className="bg-gray-100">

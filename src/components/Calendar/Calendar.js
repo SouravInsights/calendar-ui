@@ -15,7 +15,7 @@ import { CalendarContext } from "../../context/CalendarContext";
 import "./Calendar.css";
 
 // Calendar component
-const Calendar = ({ handleSelectDate, closeCalendar }) => {
+const Calendar = () => {
   // Use the state and functions from the CalendarContext
   const {
     selectedDate,

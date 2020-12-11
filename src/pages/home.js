@@ -12,10 +12,10 @@ function Home() {
   };
 
   return (
-    <CalendarProvider date={date}>
+    <CalendarProvider>
       <Navbar />
       <div className="flex justify-center pt-12">
-        <Calendar handleSelectDate={handleSelectDate} />
+        <Calendar />
       </div>
     </CalendarProvider>
   );

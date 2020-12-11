@@ -19,6 +19,11 @@ const CalendarProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   console.log("The selected date is:", selectedDate);
 
+  const [date, setDate] = useState(format(new Date(), "yyyy-MM-dddd"));
+  const handleSelectDate = (date) => {
+    setDate(date);
+  };
+
   /* Function to handle navigations to go to previous day.  */
   const setPreviousDay = () => {
     // Substracts 1 day from the selectedDate and stores it to previousDay
@@ -93,9 +98,9 @@ const CalendarProvider = ({ children }) => {
       case 13: //Enter
         handleSelectDate(format(selectedDate, "yyyy-MM-dd"));
         return console.log("Enter clicked");
-      case 27: //Esc
+      /* case 27: //Esc
         closeCalendar();
-        return console.log("Calender closed by keystoke.");
+        return console.log("Calender closed by keystoke."); */
       case 36: //Home
         setMonthStart();
         return;
