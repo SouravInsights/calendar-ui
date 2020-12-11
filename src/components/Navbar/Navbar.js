@@ -3,7 +3,7 @@ import { CalendarContext } from "../../context/CalendarContext";
 import CalendarControls from "../Calendar/CalendarControls";
 import { format } from "date-fns";
 
-const Navbar = () => {
+const Navbar = ({ handleSelectDate }) => {
   const {
     selectedDate,
     setNextDay,
