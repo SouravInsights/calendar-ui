@@ -1,4 +1,5 @@
-import React, { memo } from "react";
+import React, { memo, useContext } from "react";
+import { CalendarContext } from "../../context/CalendarContext";
 import {
   startOfMonth,
   getDaysInMonth,
@@ -9,40 +10,17 @@ import {
   isEqual,
 } from "date-fns";
 import { chunk } from "lodash";
-import CalendarControls from "./CalendarControls";
-import { CalendarContext } from "../../context/CalendarContext";
 
-import "./Calendar.css";
-
-// Calendar component
-const Calendar = () => {
-  // Use the state and functions from the CalendarContext
+const DayGrid = () => {
   const {
     selectedDate,
-    setNextMonth,
-    setPreviousMonth,
-    setNextYear,
-    setPreviousYear,
     handleCalendarKeyPress,
     handleDateSelection,
-    handleKeyPress,
-  } = React.useContext(CalendarContext);
-
+  } = useContext(CalendarContext);
   return (
-    <div className="flex mx-auto flex-col p-0.5 w-72">
-      <CalendarControls
-        setPreviousYear={setPreviousYear}
-        setPreviousMonth={setPreviousMonth}
-        setNextMonth={setNextMonth}
-        setNextYear={setNextYear}
-        prevYear={(e) => handleKeyPress(e, setPreviousYear)}
-        prevMonth={(e) => handleKeyPress(e, setPreviousMonth)}
-        nextMonth={(e) => handleKeyPress(e, setNextMonth)}
-        nextYear={(e) => handleKeyPress(e, setNextYear)}
-        date={selectedDate}
-      />
+    <div className="grid">
       <table
-        className="mt-4 focus:outline-none focus:ring-2 focus:border-gray-200"
+        className="focus:outline-none"
         id="grid"
         tabIndex="0"
         onKeyDown={handleCalendarKeyPress}
@@ -107,7 +85,7 @@ const Calendar = () => {
             <tr key={`week-${i}`} role="row">
               {week.map((day, i) =>
                 day ? (
-                  <WeekDay
+                  <GridDay
                     day={day}
                     onClick={() => handleDateSelection(day)}
                     date={selectedDate}
@@ -125,20 +103,17 @@ const Calendar = () => {
     </div>
   );
 };
-export default Calendar;
 
-// WeekDay Component
+export default DayGrid;
 
-/* Using memo here to save some unnecessary rerenders of the entire component. For example, the whole calender shouldn't rerender if we 
-switch days within the same month, only those changed should rerender. */
-const WeekDay = memo(({ day, date, onClick, value }) => {
+const GridDay = memo(({ day, date, onClick, value }) => {
   return (
     <td
       /* The expression inside the placeholder of the template literal string,
-        evaluates to be active based on the isEqual condition.
-        Cells will only be active either when they are hovered or clicked. 
-     */
-      className={`border text-center border-solid border-gray-300 p-2 text-sm text-gray-700 hover:text-white hover:bg-blue-400  ${
+          evaluates to be active based on the isEqual condition.
+          Cells will only be active either when they are hovered or clicked. 
+       */
+      className={`border text-center border-solid border-gray-300 py-14 text-sm text-gray-700 hover:text-white hover:bg-blue-400  ${
         isEqual(date, day) ? "bg-blue-500 text-white" : ""
       }`}
       onClick={onClick}

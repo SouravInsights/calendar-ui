@@ -3,6 +3,8 @@ import { format } from "date-fns";
 import "./styles/main.css";
 
 import Home from "./pages/home";
+import GridPage from "./pages/gridpage";
+
 // import Calendar from "./components/Calendar/Calendar";
 // import CalendarControls from "./components/Calendar/CalendarControls";
 

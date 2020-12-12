@@ -2,7 +2,12 @@ module.exports = {
   purge: ["./src/**/*.js", "./public/index.html"],
   darkMode: false, // or 'media' or 'class'
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        // Custom grid template columns
+        "calendar-grid": "minmax(150px, 25%) 1fr",
+      },
+    },
   },
   variants: {},
   plugins: [],
