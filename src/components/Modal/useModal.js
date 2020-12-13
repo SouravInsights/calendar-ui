@@ -3,9 +3,14 @@ import { useState } from "react";
 const useModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => {
+  /*  One single function to toggle isOpen 
+    const toggle = () => {
     setIsOpen(!isOpen);
-  };
+  }; */
+
+  function toggle() {
+    setIsOpen(!isOpen);
+  }
 
   const onOpen = () => {
     setIsOpen(true);
@@ -17,9 +22,9 @@ const useModal = () => {
 
   return {
     isOpen,
-    toggle,
     onOpen,
     onClose,
+    toggle,
   };
 };
 

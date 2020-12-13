@@ -2,7 +2,7 @@ import React from "react";
 
 function GridPage() {
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid grid-rows-calender-grid">
       <div className="">
         <h1>Hi</h1>
       </div>

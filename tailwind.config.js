@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       gridTemplateColumns: {
         // Custom grid template columns
-        "calendar-grid": "minmax(150px, 25%) 1fr",
+        "grid-rows-calendar-grid": "minmax(150px, 25%) 1fr",
       },
     },
   },

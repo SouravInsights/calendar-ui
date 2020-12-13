@@ -20,7 +20,7 @@ const DayGrid = () => {
   return (
     <div className="grid">
       <table
-        className="focus:outline-none"
+        className="focus:outline-none focus:ring-2 focus:border-gray-200"
         id="grid"
         tabIndex="0"
         onKeyDown={handleCalendarKeyPress}
