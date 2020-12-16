@@ -34,11 +34,11 @@ A reusable calendar component built using Storybook.
 - [**addDays**](https://date-fns.org/v2.16.1/docs/addDays): Add the specified number of days to the given date.
 
 ## Component design and development decisions:
-- It's a composition of 2 components i.e, Calendar and CalendarControls. I followed this approach because I think there's a similar pattern in the [Google Calender](https://calendar.google.com/) UI.
+- The Calendar component is a composition of 2 components i.e, Calendar and CalendarControls. I followed this approach because I think there's a similar pattern in the [Google Calender](https://calendar.google.com/) UI. 
 - CalendarControls can have 3 variants of various header sizes and with different positions (center, left, right, etc.) See an example in this [Figma file](https://www.figma.com/file/QbMQxGK904AVFulLFqhvbm/CalendarUI?node-id=0%3A1).
-- Calendar should be accessible by keyboard events so it's important to have hotkeys for easy navigation. I've added few basic hotkeys.
-- I noticed that most of the calendars in other design systems doesn't have the button to control year navigations. I'm not sure how useful this might be but I thought it makes sense to have year controls on the calendar component.
-- It's important to have comment lines for adoptability so that other developers can easily understand and customize the component if they want to.
+- Calendar should be accessible by keyboard events so it's important to have hotkeys for easy navigation. Hence, for accessability, I've added few basic hotkeys.
+- Most of the calendars in other design systems doesn't have any button to control year navigations. For better UX, I think it'd would be useful but it can be further improved. For example, instead of only providing arrow buttons for navigation, users should be able to instantly jump to the exact month or year they want to go. This is easily achievable by turning the month/year label into two separate <select> dropdown menus. 
+- Adding comment lines throughout the source code for better code adoptability.
 
 ## Component API:
 
